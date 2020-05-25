@@ -183,7 +183,7 @@ const Peep = function(s, p) {
 const App = function() {
 
   let people = [];
-  const card = '.w5.card.relative.dib.ma3.pa3.br3.shadow-1.bg-near-white';
+  const card = '.w5.card.dib.ma3.pa3.br3.shadow-1.bg-near-white';
   let nextPerson = Peep();
 
   const deletePerson = (p) => { people = people.filter(x => x != p) };
@@ -196,23 +196,23 @@ const App = function() {
       return m(card,
         m('.relative',
           m('.absolute.top-0.left-0.gray',
-            m('div', { onclick: () => p.props.configOpen = !configOpen }, m('i.pa1.f3.fas.fa-cog')),
+            m('div', { onclick: () => p.props.configOpen = !configOpen }, m('i.pointer.link.pa1.f3.fas.fa-cog')),
             m('.pa2'),
             configOpen && [
-              m('div', { onclick: () => addPerson(p.copy()) }, m('i.pa1.f3.far.fa-clone')),
+              m('div', { onclick: () => addPerson(p.copy()) }, m('i.pointer.link.pa1.f3.far.fa-clone')),
             ]
           ),
           m('.absolute.top-0.right-0.gray',
-            m('div', { onclick: () => deletePerson(p) }, m('i.pa1.f3.fas.fa-trash')),
+            m('div', { onclick: () => deletePerson(p) }, m('i.pointer.link.pa1.f3.fas.fa-trash')),
           ),
         ),
         m('.pv3', m(p)),
         m('.relative',
           m('.absolute.bottom-0.left-0.gray',
-            m('div', { onclick: () => p.randAll() }, m('i.pa1.f3.fas.fa-dice-two')),
+            m('div', { onclick: () => p.randAll() }, m('i.pointer.link.pa1.f3.fas.fa-dice-two')),
           ),
           m('.absolute.bottom-0.right-0.gray',
-            m('div', { onclick: () => p.props.pathStyleOpen = !pathStyleOpen }, m('i.pa1.f3.fas.fa-fill-drip')),
+            m('div', { onclick: () => p.props.pathStyleOpen = !pathStyleOpen }, m('i.pointer.link.pa1.f3.fas.fa-fill-drip')),
           ),
         ),
         pathStyleOpen && m('.ph1.pt3',
@@ -245,7 +245,8 @@ const App = function() {
   }
 
   function view(v) {
-    return m('.w-100.dt.center.pv4',
+    return m('.w-100.dt.center',
+      m('.fixed.z-9999.top-0.right-0.ma2.clickthrough', {onclick: () => getSVG() },  m('i.pointer.link.pointer-auto.pa2.bg-dark-blue.br3.fas.fa-download.f4.near-white')),
       people.map(p => m(PersonCard(p))),
       m(`${card}.o-50`,
         m('div',
@@ -253,7 +254,6 @@ const App = function() {
           m('.relative.pv3', m(nextPerson)),
         )
       ),
-      m('.absolute.top-0.right-0.pa2.ma2.bg-dark-blue.br3', {onclick: () => getSVG() },  m('i.fas.fa-download.f4.near-white'))
     );
   }
   return {view};
