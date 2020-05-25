@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "peepsgen"
+version = "0.1.0"
+description = "people generator based on openpeeps assetss"
+authors = ["Perut Boribalburephan <p.new.boribal@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+Frozen-Flask = "^0.15"
+pypugjs = "^5.9.1"
+htmlmin = "^0.1.12"
+oset = "^0.1.3"
+flask = "^1.1.1"
+beautifulsoup4 = "^4.9.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+black = "^19.10b0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
