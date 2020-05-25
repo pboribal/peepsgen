@@ -246,7 +246,8 @@ const App = function() {
 
   function view(v) {
     return m('.w-100.dt.center',
-      m('.fixed.z-9999.top-0.right-0.ma2.clickthrough', {onclick: () => getSVG() },  m('i.pointer.link.pointer-auto.pa2.bg-dark-blue.br3.fas.fa-download.f4.near-white')),
+      m('.fixed.z-9999.top-0.right-0.ma2.clickthrough',  m('i.pointer.link.pointer-auto.pa2.bg-dark-blue.br3.fas.fa-download.f4.near-white', {onclick: () => getSVG() })),
+      m('.fixed.z-9999.bottom-0.right-0.ma2.clickthrough',  m('a.pointer.link.pointer-auto', {href: "https://github.com/pboribal/peepsgen"}, m('i.pa2.bg-dark-blue.br3.fab.fa-github.f4.near-white'))),
       people.map(p => m(PersonCard(p))),
       m(`${card}.o-50`,
         m('div',
